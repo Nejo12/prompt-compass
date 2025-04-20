@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Compass</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        width: 300px;
+        background-color: #222;
+        color: white;
+        margin: 0;
+      }
+      button {
+        background-color: #444;
+        border: 1px solid #555;
+        padding: 8px;
+        margin: 4px 0;
+        width: 100%;
+        font-size: 14px;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      button:hover {
+        background-color: #555;
+      }
+      .popup-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .software-description {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #333;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      textarea {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        background-color: #333;
+        color: white;
+        border: 1px solid #555;
+        border-radius: 4px;
+        resize: vertical;
+      }
+      .button-container {
+        margin-top: 20px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="popup-content">
+      <h2>Prompt Compass</h2>
+      <div class="software-description">
+        <div>
+          <img
+            src="https://github.com/314159DD/314159DD.github.io/blob/main/1ui.png?raw=true"
+            alt="buymeacoffee.com/SteenC"
+            width="100%"
+            height="100%"
+            style="object-fit: scale-down"
+          />
+        </div>
+        <div>
+          <img
+            src="https://github.com/314159DD/314159DD.github.io/blob/main/markerindex.png?raw=true"
+            alt="buymeacoffee.com/SteenC"
+            width="100%"
+            height="100%"
+            style="object-fit: scale-down"
+          />
+        </div>
+        <p>
+          <strong
+            >Thank you for using
+            <span style="font-weight: bold; font-size: 1.2em">Prompt Compass</span></strong
+          >
+        </p>
+        <p>Your personal navigator through long, long AI conversations.</p>
+        <p>With <span style="font-weight: bold">Prompt Compass</span>, you can:</p>
+        <ul>
+          <li style="list-style-type: none">
+            🗺️<strong>Collapse and label</strong> any message with your own topic tag
+          </li>
+          <li style="list-style-type: none">
+            📌 Build a <strong>navigable index</strong> of your session
+          </li>
+          <li style="list-style-type: none">
+            🔄 Instantly <strong>jump back to important moments</strong>
+          </li>
+          <li style="list-style-type: none">
+            🎛️ Use <strong>Next / Previous</strong> controls to cruise through long threads
+          </li>
+          <li style="list-style-type: none">
+            🧼 Clean up visual clutter and <strong>stay focused</strong>
+          </li>
+        </ul>
+        <p>If you like the tool, please rate it or leave a comment.</p>
+        <p>I have more ideas im building on, feel free to suggest features.</p>
+        <p>Maybe even buy me a coffee?</p>
+        <div>
+          <img
+            src="https://github.com/314159DD/314159DD.github.io/blob/main/uO0ySGj.png?raw=true"
+            alt="buymeacoffee.com/SteenC"
+            width="100%"
+            height="420"
+            style="object-fit: scale-down"
+          />
+        </div>
+        <p>Steen Caelius | 2025</p>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('expandAllBtn').addEventListener('click', function() {
+        // Send message to content script to expand all messages
+        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+          chrome.tabs.executeScript(tabs[0].id, {
+            code:
+              document.querySelectorAll('[data-message-author-role]').forEach(msg => {
+                const content = msg.querySelector('.markdown, .whitespace-pre-wrap, .text-message');
+                if (content) content.style.display = '';
+              });
+          });
+        });
+      });
+
+      document.getElementById('collapseAllBtn').addEventListener('click', function() {
+        // Send message to content script to collapse all messages
+        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+          chrome.tabs.executeScript(tabs[0].id, {
+            code:
+              document.querySelectorAll('[data-message-author-role]').forEach(msg => {
+                const content = msg.querySelector('.markdown, .whitespace-pre-wrap, .text-message');
+                if (content) content.style.display = 'none';
+              });
+          });
+        });
+      });
+
+      document.getElementById('closeBtn').addEventListener('click', function() {
+        window.close();  // Close the popup
+      });
+    </script>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>

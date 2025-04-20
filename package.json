@@ -1,0 +1,41 @@
+{
+  "name": "prompt-compass",
+  "version": "1.1.0",
+  "description": "ChatGPT Chat Collapse Extension",
+  "main": "dist/content.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch",
+    "test": "jest",
+    "lint": "eslint 'src/**/*.{js,ts}'",
+    "lint:fix": "eslint 'src/**/*.{js,ts}' --fix",
+    "format": "prettier --write 'src/**/*.{js,ts,json,css,html}'",
+    "format:check": "prettier --check 'src/**/*.{js,ts,json,css,html}'",
+    "type-check": "tsc --noEmit",
+    "prepare": "npm run build",
+    "validate": "npm run lint && npm run format:check && npm run type-check && npm test"
+  },
+  "author": "Steen Caelius & Olaniyi Aborisade",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.260",
+    "@types/jest": "^29.5.12",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^6.10.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "html-webpack-plugin": "^5.6.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^3.2.5",
+    "style-loader": "^3.3.4",
+    "ts-jest": "^29.1.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+} 
