@@ -19,7 +19,7 @@ A Chrome extension that enhances your ChatGPT experience by making long conversa
 ### Manual Installation (Developer Mode)
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/prompt-compass.git
+   git clone https://github.com/Nejo12/prompt-compass.git
    cd prompt-compass
    ```
 
